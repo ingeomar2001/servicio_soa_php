@@ -1,7 +1,8 @@
 <?php
 $start = microtime(true);
-echo CallAPI("GET","http://netflixroulette.net/api/api.php",array('director'=>'Quentin Tarantino'));
-microtime(true) - $start;
+
+echo CallAPI("GET","https://en.wikipedia.org/w/api.php",array('action'=>'query','titles'=>'netflix ','prop'=>'revisions','rvprop'=>'content','format'=>'json'));
+echo microtime(true) - $start;
 
 // Method: POST, PUT, GET etc
 // Data: array("param" => "value") ==> index.php?param=value
@@ -22,7 +23,7 @@ function CallAPI($method, $url, $data = false)
             break;
         default:
             if ($data)
-               $url = sprintf("%s?%s", $url, http_build_query($data,null,'&',PHP_QUERY_RFC3986));
+               echo $url = sprintf("%s?%s", $url, http_build_query($data,null,'&',PHP_QUERY_RFC3986));
     }
 
     // Optional Authentication:
