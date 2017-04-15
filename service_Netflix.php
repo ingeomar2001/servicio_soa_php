@@ -1,6 +1,14 @@
 <?php
+
+if(is_null($_GET["term"])){
+    $director = "tarantino";
+}
+else{
+    $director = $_GET["term"];
+}
+
 $start = microtime(true);
-echo CallAPI("GET","http://netflixroulette.net/api/api.php",array('director'=>$_GET["director"]));
+echo CallAPI("GET","http://netflixroulette.net/api/api.php",array('director'=>$director));
 microtime(true) - $start;
 
 // Method: POST, PUT, GET etc

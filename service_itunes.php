@@ -1,8 +1,14 @@
 <?php
-$start = microtime(true);
+if(is_null($_GET["term"])){
+    $term = "nina emilia";
+}
+else{
+    $term = $_GET["term"];
+}
 
-echo CallAPI("GET","https://en.wikipedia.org/w/api.php",array('action'=>'query','titles'=>'netflix ','prop'=>'revisions','rvprop'=>'content','format'=>'json'));
-echo microtime(true) - $start;
+$start = microtime(true);
+echo CallAPI("GET","https://itunes.apple.com/search",array('media'=>'music','term'=>$term,'entity'=>'musicTrack','limit'=>200));
+microtime(true) - $start;
 
 // Method: POST, PUT, GET etc
 // Data: array("param" => "value") ==> index.php?param=value
@@ -23,7 +29,7 @@ function CallAPI($method, $url, $data = false)
             break;
         default:
             if ($data)
-               echo $url = sprintf("%s?%s", $url, http_build_query($data,null,'&',PHP_QUERY_RFC3986));
+               $url = sprintf("%s?%s", $url, http_build_query($data,null,'&',PHP_QUERY_RFC3986));
     }
 
     // Optional Authentication:
