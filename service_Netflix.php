@@ -1,6 +1,6 @@
 <?php
 $start = microtime(true);
-echo CallAPI("GET","http://netflixroulette.net/api/api.php",array('director'=>'Quentin Tarantino'));
+echo CallAPI("GET","http://netflixroulette.net/api/api.php",array('director'=>$_GET["director"]));
 microtime(true) - $start;
 
 // Method: POST, PUT, GET etc
