@@ -1,10 +1,10 @@
 <?php
 
-if(is_null($_GET["term"])){
+if(is_null($_GET["director"])){
     $director = "tarantino";
 }
 else{
-    $director = $_GET["term"];
+    $director = $_GET["director"];
 }
 
 $start = microtime(true);
